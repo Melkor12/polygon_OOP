@@ -1,0 +1,52 @@
+import math
+
+
+# Creates a Polygon Class
+class Polygon:
+    
+# Edges and circumradius are instance atrributes
+# Instance attributes are only accessible from the scope of the object
+# Class Attributes are common to all instances of the class
+# The first expression is a regular instance method
+# A Class Initializer
+
+    def __init__(self, edges, circumradius):
+        self.edges = edges
+        self.circumradius = circumradius
+
+# Two attribute functions that allows us to get edges and circumradius
+
+# __repr__ method allows us to print the values of an instance with text
+# It allows a better visualization
+    def __repr__(self):
+        return f'Polygon(edges={self.edges},circumradius={self.circumradius})'
+    
+    @property
+    def get_edges(self):
+         print(self.edges)
+
+    @property
+    def get_vertices(self):
+        print(self.edges)
+         
+    @property
+    def get_circumradius(self):
+       print (self.circumradius)
+
+    def interior_angle(self):
+        print((self.edges - 2) * (180/self.edges))
+        
+    def edge_length(self):
+        print((2 * self.circumradius) * (math.sin(math.pi/self.edges)))
+       
+    def apothem(self):
+        print(self.circumradius * (math.cos(math.pi/self.edges)))
+        
+    @property
+    def area(self):
+        print(self.edges / 2) * (self.edge_length * self.apothem)
+        
+    @property
+    def perimeter(self):
+        print(self.edges * self.edge_length)
+    
